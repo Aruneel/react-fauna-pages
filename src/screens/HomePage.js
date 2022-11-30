@@ -11,7 +11,6 @@ export default function HomePage() {
   const username = useRef()
   const confirm_password = useRef()
 
-
   const CreateAUser = async (e) => {
     e.preventDefault()
     const body = {
