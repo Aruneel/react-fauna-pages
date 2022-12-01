@@ -60,7 +60,7 @@ export const getAllLargeFileData = async (userId) => {
   try {
     let allUsers = await client.query(
       q.Map(
-        q.Paginate(q.Documents(q.Collection("largefile"))),
+        q.Paginate(q.Documents(q.Collection("largefile")), {"size": 5000}),
         q.Lambda("X", q.Get(q.Var("X")))
       )
     )
