@@ -30,7 +30,9 @@ const Users = () => {
       <div className="row">
         <ul>
           {users.length > 0 ? users.map((user, idx) =>
-            <li key={user.data.username}>{user.data.name}</li>
+            <li key={user.data.id}>
+              <b>{idx+1}.</b> <a href={user.data.actor.avatar_url} target="_blank"> {user.data.actor.avatar_url}</a>
+            </li>
           ) : 'No User is there present'}
         </ul>
       </div>
