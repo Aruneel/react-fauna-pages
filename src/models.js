@@ -56,6 +56,20 @@ export const getAllUsers = async (userId) => {
   }
 }
 
+export const getAllLargeFileData = async (userId) => {
+  try {
+    let allUsers = await client.query(
+      q.Map(
+        q.Paginate(q.Documents(q.Collection("largefile"))),
+        q.Lambda("X", q.Get(q.Var("X")))
+      )
+    )
+    return allUsers.data
+  } catch {
+    return // return null if there is any error.
+  }
+}
+
 export const loginUser = async (email, password) => {
  try {
   let userData = await client.query(

@@ -1,16 +1,28 @@
 import { useEffect, useState } from 'react';
-import { getAllUsers } from '../models'
+import { getAllUsers, getAllLargeFileData } from '../models'
 
 const Users = () => {
     const [users, setUsers] = useState([])
-    useEffect(() => {
+    // useEffect(() => {
+    //     async function fetchAllUsers() {
+    //       // You can await here
+    //       let data = await getAllUsers()
+    //       setUsers(data)
+    //     }
+    //     fetchAllUsers();
+    //   }, [])
+
+      useEffect(() => {
         async function fetchAllUsers() {
           // You can await here
-          let data = await getAllUsers()
+          let data = await getAllLargeFileData()
+          console.log('size', data.length)
           setUsers(data)
         }
         fetchAllUsers();
       }, [])
+
+      
   return (
     <div>
       
